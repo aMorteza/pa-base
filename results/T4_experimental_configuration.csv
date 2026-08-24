@@ -1,0 +1,19 @@
+parameter,value
+Model,VGG19 (pretrained)
+Split candidates,37 (feature extractor)
+Dataset,ImageNet-Mini 1000
+Clean top-1 accuracy,70.30%
+Channel,"mMobile outdoor 30 m (UCSD), loc=1 beam=1"
+Calibrated channel gain,-99.4 dB
+Bandwidth,49.152 MHz
+Noise PSD,-147.0 dBm/Hz
+Transmit power range,"[0.1, 0.5] W, 100 levels"
+Edge device,4 cores @ 1.8 GHz
+Edge server,8 cores @ 4.0 GHz
+Energy budget,5.0 J
+Delay budget,5.0 s
+Per-element privacy budget,eps_bar = 1.0 bit/element
+Clip budget,c0 = 1.0 (C_l = c0*sqrt(d_l))
+Noise grid,"[0.0, 0.5774, 0.7806, 0.9838, 1.1871, 1.3903, 1.5935, 1.7968, 2.0]"
+Search space,33300 configurations
+Seeds,"[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]"

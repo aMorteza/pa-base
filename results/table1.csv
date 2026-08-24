@@ -1,0 +1,5 @@
+Algorithm,Iterations,SplitLayer,TransmitPower_W,Sigma,Accuracy_pct,Energy_J,Delay_s,Leakage_bpe
+"Bayes-Split-Edge (Baseline, sigma=0)",20,6,0.419,0.0,70.3,1.5,4.26,inf
+"PA-BSE (Ours, eps_bar=1.0)",20,6,0.31,0.577,69.9,1.47,4.78,1.0
+Exhaustive Search (3-D),33300,6,0.254,0.577,69.9,1.39,5.0,1.0
+Random Search (equal budget),1500,6,0.294,0.577,69.9,1.46,4.89,1.0

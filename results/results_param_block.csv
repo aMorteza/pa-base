@@ -1,0 +1,4 @@
+Method,split_layer_l,transmit_power_P_W,noise_sigma,accuracy_U_pct,energy_E_J,energy_budget_J,delay_s,delay_budget_s,eps_bar_bit_per_elem,eps_bar_budget,drop_rate,feasible,evals_to_solution
+Baseline BSE (sigma=0),6,0.4192,0.0,70.3,1.505,5.0,4.256,5.0,inf,1.0,0.0,True,20
+PA-BSE (eps_bar=1.0),6,0.3101,0.5774,69.9,1.47,5.0,4.782,5.0,0.9999,1.0,0.0,True,20
+Exhaustive (3-D),6,0.2535,0.5774,69.9,1.392,5.0,5.0,5.0,0.9999,1.0,0.0828,True,33300

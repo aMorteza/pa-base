@@ -1,0 +1,113 @@
+{
+  "eval_source": "ImageNet-Mini 1000",
+  "clean_accuracy": 0.703,
+  "grid_size": 33300,
+  "eps_bar": 1.0,
+  "c0": 1.0,
+  "sigma_grid": [
+    0.0,
+    0.5774,
+    0.7806,
+    0.9838,
+    1.1871,
+    1.3903,
+    1.5935,
+    1.7968,
+    2.0
+  ],
+  "baseline_bse": {
+    "l": 6,
+    "P_t": 0.4192,
+    "E": 1.5049,
+    "delay": 4.256,
+    "feasible": true,
+    "sigma": 0.0,
+    "U": 0.703,
+    "eps_bar": Infinity
+  },
+  "pa_bse": {
+    "l": 6,
+    "P_t": 0.3101,
+    "E": 1.4696,
+    "delay": 4.7819,
+    "feasible": true,
+    "sigma": 0.5774,
+    "U": 0.699,
+    "eps_bar": 0.9999
+  },
+  "exhaustive": {
+    "l": 6,
+    "P_t": 0.2535,
+    "E": 1.3923,
+    "delay": 5.0,
+    "feasible": true,
+    "sigma": 0.5774,
+    "U": 0.699,
+    "eps_bar": 0.9999
+  },
+  "privacy_cost_pts": 0.4000000000000057,
+  "efficiency": {
+    "evals": 0,
+    "found_in_init": true,
+    "reached": true
+  },
+  "checks": {
+    "sigma=0 recovers baseline (A(l,0,0)==clean)": {
+      "pass": true,
+      "detail": "range [70.30,70.30]% vs clean 70.30%"
+    },
+    "per-element budget is layer-independent": {
+      "pass": true,
+      "detail": "eps_bar_dp(1)=0.5000 (no layer arg)"
+    },
+    "per-element budget decreasing in sigma": {
+      "pass": true,
+      "detail": "monotone"
+    },
+    "total budget: deeper split leaks less": {
+      "pass": true,
+      "detail": "l0=1605632 > l36=12544 bits"
+    },
+    "sigma=0 -> unbounded per-element leakage": {
+      "pass": true,
+      "detail": "eps_bar_dp(0)=inf"
+    },
+    "PA-BSE satisfies E/delay/privacy": {
+      "pass": true,
+      "detail": "E=1.47/5.0 delay=4.78/5.0 eps_bar=0.9999068047215554/1.0"
+    },
+    "Baseline BSE satisfies E/delay/privacy": {
+      "pass": true,
+      "detail": "E=1.50/5.0 delay=4.26/5.0 eps_bar=inf/1.0"
+    },
+    "Exhaustive satisfies E/delay/privacy": {
+      "pass": true,
+      "detail": "E=1.39/5.0 delay=5.00/5.0 eps_bar=0.9999068047215554/1.0"
+    },
+    "PA-BSE uses NON-ZERO noise (did not degenerate to baseline)": {
+      "pass": true,
+      "detail": "PA-BSE sigma=0.5774 (must be >0; sigma=0 would mean no privacy was applied)"
+    },
+    "PA-BSE == exhaustive optimum": {
+      "pass": true,
+      "detail": "PA-BSE 69.90% vs exhaustive 69.90%"
+    },
+    "PA-BSE >= equal-budget random search": {
+      "pass": true,
+      "detail": "PA-BSE 69.90% vs random 69.90%"
+    },
+    "param-block accuracy == optimizer accuracy": {
+      "pass": true,
+      "detail": "table 69.9% vs optimizer 69.90%"
+    },
+    "privacy cost is reported (not hidden)": {
+      "pass": true,
+      "detail": "at eps_bar=1.0: cost 0.40 pts (clean 70.30% -> 69.90%)"
+    },
+    "privacy-utility frontier has real spread": {
+      "pass": true,
+      "detail": "accuracy spans 66.0%-69.9% over the budget range"
+    }
+  },
+  "all_passed": true
+}
