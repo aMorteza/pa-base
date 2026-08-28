@@ -1,0 +1,122 @@
+[load] profiled sigmas (noise range): [np.float64(0.0), np.float64(0.5774), np.float64(0.7806), np.float64(0.9838), np.float64(1.1871), np.float64(1.3903), np.float64(1.5935), np.float64(1.7968), np.float64(2.0)]
+[load] profiled drops: [np.float64(0.0), np.float64(0.19), np.float64(0.38), np.float64(0.57), np.float64(0.76), np.float64(0.95)]
+[load] clean accuracy: 70.30%  channel -99.4 dB
+
+========================================================================
+ITEM 2a — PROVENANCE OF THE NOISE RANGE
+========================================================================
+ eps_bar  sigma_min_required                                                   note
+    0.25              1.5538 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    0.50              1.0000 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    0.75              0.7395 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    1.00              0.5774 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    1.50              0.3780 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    2.00              0.2582 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+    3.00              0.1260 lower end = feasibility floor c0/sqrt(2^(2*eps_bar)-1)
+
+Lower end: DERIVED — the smallest sigma that satisfies the per-element budget.
+Upper end: NOT derived. sigma_max=2.0 in the original runs was an arbitrary
+           choice. Below we sweep the upper end explicitly to justify it.
+
+accuracy at layer 6 across the profiled noise range:
+   sigma= 0.000 ->  70.30%
+   sigma= 0.577 ->  69.90%
+   sigma= 0.781 ->  69.27%
+   sigma= 0.984 ->  66.60%
+   sigma= 1.187 ->  63.33%
+   sigma= 1.390 ->  57.67%
+   sigma= 1.593 ->  50.83%
+   sigma= 1.797 ->  41.73%
+   sigma= 2.000 ->  33.03%
+
+=> accuracy stays above 50% only for sigma <= 1.593;
+   beyond that the mechanism destroys utility, which bounds the useful range.
+
+========================================================================
+ITEM 2b — WHY ONLY A FEW SPLIT LAYERS ARE SELECTED
+========================================================================
+resource-feasible layers: 16/37 -> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+eliminated by delay/energy BEFORE privacy: 21 layers
+
+accuracy under noise, by activation type (feasible layers only):
+      count   mean    max
+type                     
+conv      7  35.38  64.33
+pool      2  67.35  68.17
+relu      7  49.37  69.90
+
+conv -> following relu (noise robustness of ReLU):
+   L 0 conv1_1   64.33%  ->  L 1 relu1_1   65.73%  (+1.4)
+   L 2 conv1_2   29.37%  ->  L 3 relu1_2   36.10%  (+6.7)
+   L 5 conv2_1   59.97%  ->  L 6 relu2_1   69.90%  (+9.9)
+   L 7 conv2_2   17.97%  ->  L 8 relu2_2   22.13%  (+4.2)
+   L10 conv3_1   43.57%  ->  L11 relu3_1   67.87%  (+24.3)
+   L12 conv3_2   25.63%  ->  L13 relu3_2   59.20%  (+33.6)
+   L14 conv3_3    6.83%  ->  L15 relu3_3   24.67%  (+17.8)
+
+=> Two causes, both structural (NOT a coarse noise range):
+   (i) delay/energy eliminate deep layers before privacy is considered;
+   (ii) ReLU clamps negatives to zero, removing ~half the injected noise,
+        so post-ReLU (and pooling) split points dominate conv split points.
+
+========================================================================
+ITEM 2c — SPLIT-LAYER DIVERSITY OVER THE BUDGET / NOISE RANGE
+========================================================================
+ eps_bar  layer    name  sigma  power  acc_pct  sigma_floor
+    0.25     13 relu3_2 1.5935 0.3020    63.57       1.5538
+    0.40     13 relu3_2 1.1871 0.3020    65.97       1.1616
+    0.50     13 relu3_2 1.1871 0.3020    65.97       1.0000
+    0.60      6 relu2_1 0.9838 0.2495    66.60       0.8779
+    0.75      6 relu2_1 0.7806 0.2495    69.27       0.7395
+    0.90      6 relu2_1 0.7806 0.2495    69.27       0.6347
+    1.00      6 relu2_1 0.5774 0.2495    69.90       0.5774
+    1.25      6 relu2_1 0.5774 0.2495    69.90       0.4634
+    1.50      6 relu2_1 0.5774 0.2495    69.90       0.3780
+    2.00      6 relu2_1 0.5774 0.2495    69.90       0.2582
+    2.50      6 relu2_1 0.5774 0.2495    69.90       0.1796
+    3.00      6 relu2_1 0.5774 0.2495    69.90       0.1260
+
+DISTINCT optimal split layers found: [6, 13]  (count=2)
+
+best achievable accuracy when each layer is FORCED (eps_bar=1.0):
+ layer    name  best_acc_pct  sigma  power
+     6 relu2_1         69.90 0.5774 0.2495
+     3 relu1_2         68.27 0.5774 0.5000
+     4   pool1         68.17 0.5774 0.1040
+    11 relu3_1         67.87 0.5774 0.1848
+     1 relu1_1         67.53 0.5774 0.3990
+    13 relu3_2         67.20 0.5774 0.3020
+     9   pool2         66.53 0.5774 0.1000
+     0 conv1_1         66.10 0.5774 0.3990
+     2 conv1_2         64.00 0.5774 0.5000
+     8 relu2_2         61.10 0.5774 0.3384
+     5 conv2_1         59.97 0.5774 0.2495
+     7 conv2_2         49.97 0.5774 0.3384
+    10 conv3_1         43.57 0.5774 0.1848
+    15 relu3_3         43.47 0.5774 0.3990
+    12 conv3_2         37.60 0.5774 0.3020
+    14 conv3_3         15.23 0.5774 0.3990
+
+========================================================================
+ITEM 3 — PRIVACY-PRESERVING BASELINES AND CONSTRAINED VARIANTS
+========================================================================
+                                 Method  SplitLayer LayerName  Power_W  Sigma  Accuracy_pct  Energy_J  Delay_s PerElem_Leakage                                             Note  PA_BSE_gain_pts
+            BSE (non-private reference)           0   conv1_1   0.3990 0.0000         70.30     1.398    5.000             inf                    no privacy mechanism; sigma=0            -0.40
+               PA-BSE (joint l,P,sigma)           6   relu2_1   0.2495 0.5774         69.90     1.382    5.000          0.9999                                       our method             0.00
+      Noise-only DP (fixed split/power)           0   conv1_1   0.3990 0.5774         66.10     1.398    5.000          0.9999 privacy added on top of the non-private solution             3.80
+       Deepest-feasible-split heuristic          15   relu3_3   0.3990 0.5774         43.47     2.620    5.000          0.9999            maximise depth, then optimise P,sigma            26.43
+    Fixed-noise (sigma at budget floor)           6   relu2_1   0.2495 0.5774         69.90     1.382    5.000          0.9999                       sigma fixed; l,P optimised             0.00
+    Fixed-split (l=0), optimise P,sigma           0   conv1_1   0.3990 0.5774         66.10     1.398    5.000          0.9999                 isolates the value of choosing l             3.80
+Fixed-power (P=0.399), optimise l,sigma           6   relu2_1   0.3990 0.5774         69.90     1.497    4.328          0.9999                 isolates the value of choosing P             0.00
+
+========================================================================
+SUMMARY
+========================================================================
+Item 2a: noise-range lower end is derived (feasibility floor); upper end was
+         arbitrary and is now swept explicitly.
+Item 2b: 21/37 layers are eliminated by delay/energy before privacy;
+         within the rest, ReLU/pool split points dominate conv ones under noise.
+Item 2c: 2 distinct optimal split layers across the budget sweep: [6, 13]
+Item 3 : 7 methods compared; outputs in /home/morteza/Downloads/pa_bse/results/followup
+
+Saved: /home/morteza/Downloads/pa_bse/results/followup
