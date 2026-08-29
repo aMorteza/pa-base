@@ -1,0 +1,318 @@
+====================================================================
+ENVIRONMENT PREFLIGHT
+====================================================================
+  [info] GPU: NVIDIA RTX A5000 (device 0) | free 25.0 / 25.3 GB
+  [info] CUDA_VISIBLE_DEVICES=1
+  [info] GPU allocation probe: OK
+  [info] RESULTS_DIR = /home/morteza/Downloads/pa_bse/results (writable)
+  [info] Disk free at RESULTS_DIR: 2277.8 GB
+  [info] network OK: www.kaggle.com (ImageNet-Mini download (kagglehub))
+  [info] network OK: github.com (mMobile channel dataset clone)
+  [info] network OK: download.pytorch.org (VGG19 pretrained weights)
+  [WARN] No Kaggle credentials. kagglehub may prompt or fail; the notebook will fall back to Imagenette. To use ImageNet-Mini, place kaggle.json in ~/.kaggle/ or set KAGGLE_USERNAME / KAGGLE_KEY.
+  [WARN] Not inside tmux/screen. A dropped SSH session will KILL a multi-hour run. Recommended:  tmux new -s pabse   then launch inside it.
+====================================================================
+PREFLIGHT OK (with 2 warning(s)) - safe to proceed.
+Tip: the notebook's own RESULTS_DIR logic runs later; if it differs from
+     /home/morteza/Downloads/pa_bse/results, set it explicitly so outputs land somewhere writable.
+Torch 2.8.0+cu128 | device: cuda
+[results] RESULTS_DIR = /home/morteza/Downloads/pa_bse/results
+eps_bar=1.0 bit/elem -> sigma floor 0.577; grid [np.float64(0.0), np.float64(0.3), np.float64(0.4214), np.float64(0.5429), np.float64(0.6643), np.float64(0.7857), np.float64(0.9071), np.float64(1.0286), np.float64(1.15), np.float64(1.2714), np.float64(1.3929), np.float64(1.5143), np.float64(1.6357), np.float64(1.7571), np.float64(1.8786), np.float64(2.0)]
+Total FLOPs: 39.03 G
+Warning: Looks like you're using an outdated `kagglehub` version (installed: 0.3.13), please consider upgrading to the latest version (1.0.2).
+ImageNet-Mini 1000 | clean top-1: 70.30% (703/1000)
+mMobile (public) | calibrated loc1 gain -99.4 dB (cal -71.7 dB)
+channel gains plot saved
+Paper Fig 2-4 arrays ready (privacy-invariant).
+A(l,j):   0%|          | 0/37 [00:00<?, ?it/s]A(l,j):   3%|▎         | 1/37 [00:30<18:00, 30.02s/it]A(l,j):   5%|▌         | 2/37 [01:00<17:41, 30.32s/it]A(l,j):   8%|▊         | 3/37 [01:31<17:17, 30.52s/it]A(l,j):  11%|█         | 4/37 [02:02<16:52, 30.67s/it]A(l,j):  14%|█▎        | 5/37 [02:32<16:17, 30.54s/it]A(l,j):  16%|█▌        | 6/37 [03:03<15:46, 30.53s/it]A(l,j):  19%|█▉        | 7/37 [03:33<15:15, 30.53s/it]A(l,j):  22%|██▏       | 8/37 [04:04<14:45, 30.53s/it]A(l,j):  24%|██▍       | 9/37 [04:34<14:14, 30.53s/it]A(l,j):  27%|██▋       | 10/37 [05:04<13:41, 30.44s/it]A(l,j):  30%|██▉       | 11/37 [05:35<13:10, 30.41s/it]A(l,j):  32%|███▏      | 12/37 [06:05<12:39, 30.39s/it]A(l,j):  35%|███▌      | 13/37 [06:35<12:09, 30.38s/it]A(l,j):  38%|███▊      | 14/37 [07:06<11:38, 30.37s/it]A(l,j):  41%|████      | 15/37 [07:36<11:07, 30.36s/it]A(l,j):  43%|████▎     | 16/37 [08:06<10:37, 30.36s/it]A(l,j):  46%|████▌     | 17/37 [08:37<10:07, 30.36s/it]A(l,j):  49%|████▊     | 18/37 [09:07<09:36, 30.35s/it]A(l,j):  51%|█████▏    | 19/37 [09:37<09:05, 30.30s/it]A(l,j):  54%|█████▍    | 20/37 [10:08<08:34, 30.28s/it]A(l,j):  57%|█████▋    | 21/37 [10:38<08:04, 30.27s/it]A(l,j):  59%|█████▉    | 22/37 [11:08<07:33, 30.26s/it]A(l,j):  62%|██████▏   | 23/37 [11:38<07:03, 30.26s/it]A(l,j):  65%|██████▍   | 24/37 [12:09<06:33, 30.26s/it]A(l,j):  68%|██████▊   | 25/37 [12:39<06:03, 30.26s/it]A(l,j):  70%|███████   | 26/37 [13:09<05:32, 30.26s/it]A(l,j):  73%|███████▎  | 27/37 [13:39<05:02, 30.26s/it]A(l,j):  76%|███████▌  | 28/37 [14:10<04:32, 30.23s/it]A(l,j):  78%|███████▊  | 29/37 [14:40<04:01, 30.22s/it]A(l,j):  81%|████████  | 30/37 [15:10<03:31, 30.20s/it]A(l,j):  84%|████████▍ | 31/37 [15:40<03:01, 30.19s/it]A(l,j):  86%|████████▋ | 32/37 [16:10<02:30, 30.19s/it]A(l,j):  89%|████████▉ | 33/37 [16:40<02:00, 30.19s/it]A(l,j):  92%|█████████▏| 34/37 [17:11<01:30, 30.18s/it]A(l,j):  95%|█████████▍| 35/37 [17:41<01:00, 30.17s/it]A(l,j):  97%|█████████▋| 36/37 [18:11<00:30, 30.17s/it]A(l,j): 100%|██████████| 37/37 [18:41<00:00, 30.16s/it]A(l,j): 100%|██████████| 37/37 [18:41<00:00, 30.31s/it]
+A(l,0)==clean at all layers: True
+per-element eps_bar_dp(sigma=1) = 0.5000 bit/elem (layer-independent)
+total eps: l=0 -> 1605632 | l=36 -> 12544 bits (deeper leaks less in TOTAL)
+A(l,j,sigma):   0%|          | 0/37 [00:00<?, ?it/s]A(l,j,sigma):   3%|▎         | 1/37 [07:50<4:42:29, 470.82s/it]A(l,j,sigma):   5%|▌         | 2/37 [15:41<4:34:43, 470.94s/it]A(l,j,sigma):   8%|▊         | 3/37 [23:32<4:26:53, 470.98s/it]A(l,j,sigma):  11%|█         | 4/37 [31:23<4:19:00, 470.92s/it]A(l,j,sigma):  14%|█▎        | 5/37 [38:33<4:03:12, 456.01s/it]A(l,j,sigma):  16%|█▌        | 6/37 [45:56<3:53:16, 451.49s/it]A(l,j,sigma):  19%|█▉        | 7/37 [53:19<3:44:25, 448.83s/it]A(l,j,sigma):  22%|██▏       | 8/37 [1:00:41<3:35:54, 446.69s/it]A(l,j,sigma):  24%|██▍       | 9/37 [1:08:03<3:27:46, 445.24s/it]A(l,j,sigma):  27%|██▋       | 10/37 [1:15:05<3:17:09, 438.15s/it]A(l,j,sigma):  30%|██▉       | 11/37 [1:22:14<3:08:34, 435.19s/it]A(l,j,sigma):  32%|███▏      | 12/37 [1:29:23<3:00:32, 433.32s/it]A(l,j,sigma):  35%|███▌      | 13/37 [1:36:31<2:52:44, 431.85s/it]A(l,j,sigma):  38%|███▊      | 14/37 [1:43:40<2:45:13, 431.02s/it]A(l,j,sigma):  41%|████      | 15/37 [1:50:49<2:37:46, 430.31s/it]A(l,j,sigma):  43%|████▎     | 16/37 [1:57:58<2:30:29, 429.96s/it]A(l,j,sigma):  46%|████▌     | 17/37 [2:05:07<2:23:13, 429.69s/it]A(l,j,sigma):  49%|████▊     | 18/37 [2:12:16<2:16:00, 429.49s/it]A(l,j,sigma):  51%|█████▏    | 19/37 [2:19:15<2:07:55, 426.41s/it]A(l,j,sigma):  54%|█████▍    | 20/37 [2:26:18<2:00:27, 425.17s/it]A(l,j,sigma):  57%|█████▋    | 21/37 [2:33:21<1:53:11, 424.45s/it]A(l,j,sigma):  59%|█████▉    | 22/37 [2:40:23<1:45:57, 423.84s/it]A(l,j,sigma):  62%|██████▏   | 23/37 [2:47:26<1:38:49, 423.57s/it]A(l,j,sigma):  65%|██████▍   | 24/37 [2:54:28<1:31:41, 423.22s/it]A(l,j,sigma):  68%|██████▊   | 25/37 [3:01:31<1:24:37, 423.11s/it]A(l,j,sigma):  70%|███████   | 26/37 [3:08:34<1:17:32, 422.94s/it]A(l,j,sigma):  73%|███████▎  | 27/37 [3:15:36<1:10:28, 422.82s/it]A(l,j,sigma):  76%|███████▌  | 28/37 [3:22:34<1:03:11, 421.22s/it]A(l,j,sigma):  78%|███████▊  | 29/37 [3:29:31<56:00, 420.10s/it]  A(l,j,sigma):  81%|████████  | 30/37 [3:36:29<48:54, 419.27s/it]A(l,j,sigma):  84%|████████▍ | 31/37 [3:43:25<41:51, 418.57s/it]A(l,j,sigma):  86%|████████▋ | 32/37 [3:50:22<34:50, 418.09s/it]A(l,j,sigma):  89%|████████▉ | 33/37 [3:57:19<27:50, 417.74s/it]A(l,j,sigma):  92%|█████████▏| 34/37 [4:04:17<20:52, 417.56s/it]A(l,j,sigma):  95%|█████████▍| 35/37 [4:11:14<13:54, 417.40s/it]A(l,j,sigma):  97%|█████████▋| 36/37 [4:18:10<06:57, 417.25s/it]A(l,j,sigma): 100%|██████████| 37/37 [4:25:06<00:00, 416.78s/it]A(l,j,sigma): 100%|██████████| 37/37 [4:25:06<00:00, 429.91s/it]
+A(l,0,0)==clean (generalization): True
+l=6,P=0.27 sweep sigma:
+  sigma=0: U=70.3% eps_bar=inf feasible=True
+  sigma=0.577: U=70.0% eps_bar=1.001 feasible=False
+  sigma=1.0: U=66.5% eps_bar=0.500 feasible=True
+  sigma=2.0: U=32.9% eps_bar=0.161 feasible=True
+PREFLIGHT PASSED: A(l,0,0)==clean; eps_bar_dp(1)=0.5000; feasible sigmas=[0.6643, 0.7857, 0.9071, 1.0286, 1.15, 1.2714, 1.3929, 1.5143, 1.6357, 1.7571, 1.8786, 2.0]
+3-D grid: 59200 configs
+[optimizer-quality] equal-budget random search (2795 evals): U=69.77%
+PA-BSE: {'l': 6, 'P_t': 0.4273, 'E': np.float64(1.5074), 'delay': np.float64(4.2277), 'feasible': True, 'sigma': 0.6643, 'U': 0.6977, 'eps_bar': np.float64(0.8538)} | BO iters: 20
+Exhaustive: {'l': 6, 'P_t': 0.2535, 'E': np.float64(1.3923), 'delay': np.float64(5.0), 'feasible': True, 'sigma': 0.6643, 'U': 0.6977, 'eps_bar': np.float64(0.8538)} | grid: 59200
+Baseline BSE (sigma=0): {'l': 6, 'P_t': 0.4192, 'E': np.float64(1.5049), 'delay': np.float64(4.256), 'feasible': True, 'sigma': 0.0, 'U': 0.703, 'eps_bar': inf}
+[efficiency] PA-BSE: 0 BO-evals to within 0.001 of optimum (optimum already in initial design)
+=== Optimization solution — full parameter block ===
+Method               Baseline BSE (sigma=0) PA-BSE (eps_bar=1.0) Exhaustive (3-D)
+split_layer_l                             6                    6                6
+transmit_power_P_W                   0.4192               0.4273           0.2535
+noise_sigma                             0.0               0.6643           0.6643
+accuracy_U_pct                         70.3                69.77            69.77
+energy_E_J                            1.505                1.507            1.392
+energy_budget_J                         5.0                  5.0              5.0
+delay_s                               4.256                4.228              5.0
+delay_budget_s                          5.0                  5.0              5.0
+eps_bar_bit_per_elem                    inf               0.8538           0.8538
+eps_bar_budget                          1.0                  1.0              1.0
+drop_rate                               0.0                  0.0           0.0828
+feasible                               True                 True             True
+evals_to_solution                        20                   20            59200
+=== Table 1 (paper format): BSE vs PA-BSE ===
+                           Algorithm  Iterations  SplitLayer  TransmitPower_W  Sigma  Accuracy_pct  Energy_J  Delay_s Leakage_bpe
+Bayes-Split-Edge (Baseline, sigma=0)          20           6            0.419  0.000         70.30      1.50     4.26         inf
+          PA-BSE (Ours, eps_bar=1.0)          20           6            0.427  0.664         69.77      1.51     4.23       0.854
+             Exhaustive Search (3-D)       59200           6            0.254  0.664         69.77      1.39     5.00       0.854
+        Random Search (equal budget)        2795           6            0.355  0.664         69.77      1.48     4.53       0.854
+baseline best U=70.30% | PA-BSE best U=69.77%
+baseline regret curve present: True | PA-BSE: True
+[Fig10] BSE: 10/10 seeds reached opt, 10 found in init | PA-BSE: 10/10 reached, 10 in init
+BSE: 0.0+/-0.0 | PA-BSE: 0.0+/-0.0 evals (grid 59200)
+  NOTE: optimum often found within the initial design -> report as 'reached within initial design on this landscape', not as a small eval count.
+saved accuracy-vs-layer comparison
+CAPTION: Accuracy falls as noise sigma rises; the shaded region is privacy-
+infeasible (leakage above budget). The optimizer picks the smallest feasible sigma.
+CAPTION: Higher power shortens transmission, reducing deadline truncation and
+raising accuracy until it saturates. Curves shift with the added noise.
+CAPTION: As the privacy budget tightens (right to left), the optimizer moves the
+split deeper AND raises noise — the two privacy levers working together.
+CAPTION: With the per-element budget, the minimum feasible noise is the same at
+every layer (flat line) — this is why the budget makes layers comparable.
+CAPTION: Accuracy as a joint function of split layer and noise. The star marks
+the PA-BSE operating point; accuracy degrades sharply at high noise.
+CAPTION: How deadline-induced truncation degrades accuracy; deeper layers are
+more robust because their smaller activations survive truncation better.
+\nAll pairwise plots saved. 6 relationship plots + 1 heatmap.
+CAPTION: Accuracy falls as noise increases; shaded region is privacy-infeasible (below the per-element budget floor). The optimizer picks the smallest feasible sigma.
+CAPTION: Higher power raises the transmission rate, reducing deadline truncation and thus raising feasible accuracy, up to the energy limit.
+CAPTION: Under the per-element budget, the minimum feasible noise is the SAME at every split layer (flat line) — this is exactly why the per-element formulation makes the split-point comparison fair. (With a total budget this line would slope.)
+CAPTION: As the budget tightens (right to left), the optimizer moves the split DEEPER and increases noise — trading compute for privacy. The key coupling result.
+CAPTION: Accuracy vs the fraction of the activation dropped when the deadline binds. Deeper layers tolerate truncation differently — this is A(l,j).
+CAPTION: Joint accuracy landscape. Left of the dashed line is privacy-infeasible; the optimizer lands at the star — the highest-accuracy feasible point.
+
+All pairwise plots saved:
+   pair_accuracy_vs_noise.png
+   pair_accuracy_vs_power.png
+   pair_noise_vs_layer.png
+   pair_optimal_vs_budget.png
+   pair_accuracy_vs_drop.png
+   surface_accuracy_layer_noise.png
+eps_bar=      0.50 -> U= 66.5% l= 6 sigma=1.029
+eps_bar=      0.75 -> U= 68.8% l= 6 sigma=0.786
+eps_bar=      1.00 -> U= 69.8% l= 6 sigma=0.664
+eps_bar=      1.50 -> U= 70.0% l= 6 sigma=0.543
+eps_bar=      2.00 -> U= 70.1% l= 4 sigma=0.300
+eps_bar=      3.00 -> U= 70.1% l= 4 sigma=0.300
+eps_bar=1000000000.00 -> U= 70.1% l= 4 sigma=0.300
+
+========================================================================
+ITEM 3 - PRIVACY BASELINES AND CONSTRAINED VARIANTS
+========================================================================
+                                     Method  SplitLayer LayerName  Power_W  Sigma  Accuracy_pct  Energy_J  Delay_s PerElem_Leakage                                             Note  PA_BSE_gain_pts
+                BSE (non-private reference)           0   conv1_1   0.3990 0.0000         70.30     1.398    5.000             inf                    no privacy mechanism; sigma=0            -0.53
+                 PA-BSE (joint l, P, sigma)           6   relu2_1   0.4273 0.6643         69.77     1.507    4.228          0.8538                                       our method            -0.00
+        Noise-only DP (fixed split & power)           0   conv1_1   0.3990 0.6643         65.13     1.398    5.000          0.8538 privacy added on top of the non-private solution             4.64
+        Fixed-noise (sigma at budget floor)           6   relu2_1   0.2535 0.6643         69.77     1.392    5.000          0.8538                  sigma pinned; l and P optimised            -0.00
+           Deepest-feasible-split heuristic          15   relu3_3   0.3990 0.6643         42.53     2.620    5.000          0.8538  maximise split depth, then optimise P and sigma            27.24
+    Fixed-split (l=0), optimise P and sigma           0   conv1_1   0.3990 0.6643         65.13     1.398    5.000          0.8538                 isolates the value of choosing l             4.64
+Fixed-power (P=0.399), optimise l and sigma           6   relu2_1   0.3990 0.6643         69.77     1.498    4.332          0.8538                 isolates the value of choosing P            -0.00
+
+========================================================================
+ITEM 2 - SPLIT-LAYER DIVERSITY OVER THE BUDGET AND NOISE RANGE
+========================================================================
+ eps_bar  layer    name  sigma  power  acc_pct  sigma_floor
+    0.25     13 relu3_2 1.6357 0.3020    63.97       1.5538
+    0.40     13 relu3_2 1.3929 0.3020    65.37       1.1616
+    0.50      6 relu2_1 1.0286 0.2535    66.47       1.0000
+    0.60      6 relu2_1 0.9071 0.2535    67.87       0.8779
+    0.75      6 relu2_1 0.7857 0.2535    68.80       0.7395
+    0.90      6 relu2_1 0.6643 0.2535    69.77       0.6347
+    1.00      6 relu2_1 0.6643 0.2535    69.77       0.5774
+    1.25      6 relu2_1 0.5429 0.2535    70.03       0.4634
+    1.50      6 relu2_1 0.5429 0.2535    70.03       0.3780
+    2.00      4   pool1 0.3000 0.1081    70.07       0.2582
+    2.50      4   pool1 0.3000 0.1081    70.07       0.1796
+    3.00      4   pool1 0.3000 0.1081    70.07       0.1260
+
+DISTINCT optimal split layers across the budget sweep: [4, 6, 13] (count=3)
+
+forced-layer ranking (top 12):
+ layer    name type  best_acc_pct  sigma  power
+     6 relu2_1 relu         69.77 0.6643 0.2535
+     4   pool1 pool         67.73 0.6643 0.1081
+    11 relu3_1 relu         67.63 0.6643 0.1848
+    13 relu3_2 relu         67.30 0.6643 0.3020
+     3 relu1_2 relu         66.20 0.6643 0.5000
+     1 relu1_1 relu         66.00 0.6643 0.3990
+     9   pool2 pool         65.90 0.6643 0.1000
+     0 conv1_1 conv         65.13 0.6643 0.3990
+     2 conv1_2 conv         63.03 0.6643 0.5000
+     5 conv2_1 conv         59.57 0.6643 0.2535
+     8 relu2_2 relu         57.60 0.6643 0.3384
+     7 conv2_2 conv         46.30 0.6643 0.3384
+
+accuracy under noise by activation type:
+      count   mean    max
+type                     
+conv      7  46.72  65.13
+pool      2  66.82  67.73
+relu      7  62.43  69.77
+
+[delta] privacy costs 0.53 accuracy points (70.30% -> 69.77%) at eps_bar=1.0
+
+=== T1. BSE vs PA-BSE (with delta) ===
+                       Method  SplitLayer  Power_W        Sigma  Accuracy_pct  Energy_J  Delay_s  DropRate PerElem_Leakage
+       BSE baseline (sigma=0)           6   0.4192          0.0         70.30     1.505    4.256    0.0000             inf
+         PA-BSE (eps_bar=1.0)           6   0.4273       0.6643         69.77     1.507    4.228    0.0000          0.8538
+               Exhaustive 3-D           6   0.2535       0.6643         69.77     1.392    5.000    0.0828          0.8538
+ Random search (equal budget)           6   0.3545       0.6643         69.77     1.484    4.529    0.0000          0.8538
+DELTA (PA-BSE minus baseline)           0   0.0081 0.6643 (abs)         -0.53     0.003   -0.028    0.0000               -
+
+=== T2. Privacy-utility frontier ===
+ eps_bar_bit_per_elem  accuracy_pct  privacy_cost_pts  optimal_split_layer  optimal_sigma  sigma_floor split_moved_vs_baseline
+                 0.50         66.47              3.83                    6         1.0286       1.0000                      no
+                 0.75         68.80              1.50                    6         0.7857       0.7395                      no
+                 1.00         69.77              0.53                    6         0.6643       0.5774                      no
+                 1.50         70.03              0.27                    6         0.5429       0.3780                      no
+                 2.00         70.07              0.23                    4         0.3000       0.2582           yes -> deeper
+                 3.00         70.07              0.23                    4         0.3000       0.1260           yes -> deeper
+
+=== T3. Per-layer summary (saved; 37 rows) ===
+ layer    name  d_l_elements  payload_MB  acc_BSE_pct  acc_PABSE_pct  delta_pct  delay_s  energy_J  total_leakage_bits  feasible_BSE  feasible_PABSE
+     0 conv1_1       3211264       12.85         70.3          65.13      -5.17    5.000     1.496           2741699.3          True            True
+     1 relu1_1       3211264       12.85         70.3          66.00      -4.30    5.000     1.496           2741699.3          True            True
+     2 conv1_2       3211264       12.85         65.9          50.27     -15.63    5.000     1.723           2741699.3          True            True
+     3 relu1_2       3211264       12.85         65.9          55.93      -9.97    5.000     1.724           2741699.3          True            True
+     4   pool1        802816        3.21         70.3          67.73      -2.57    3.038     0.885            685424.8          True            True
+     5 conv2_1       1605632        6.42         70.3          59.57     -10.73    4.227     1.507           1370849.7          True            True
+     6 relu2_1       1605632        6.42         70.3          69.77      -0.53    4.228     1.507           1370849.7          True            True
+     7 conv2_2       1605632        6.42         70.3          46.30     -24.00    4.817     1.987           1370849.7          True            True
+     8 relu2_2       1605632        6.42         70.3          57.60     -12.70    4.817     1.987           1370849.7          True            True
+     9   pool2        401408        1.61         70.3          65.90      -4.40    3.475     1.414            342712.4          True            True
+  ... (full table in T3_per_layer_summary.csv)
+
+=== T4. Experimental configuration (saved) ===
+                 parameter                                                                                                                 value
+                     Model                                                                                                    VGG19 (pretrained)
+          Split candidates                                                                                                37 (feature extractor)
+                   Dataset                                                                                                    ImageNet-Mini 1000
+      Clean top-1 accuracy                                                                                                                70.30%
+                   Channel                                                                             mMobile outdoor 30 m (UCSD), loc=1 beam=1
+   Calibrated channel gain                                                                                                              -99.4 dB
+                 Bandwidth                                                                                                            49.152 MHz
+                 Noise PSD                                                                                                         -147.0 dBm/Hz
+      Transmit power range                                                                                              [0.1, 0.5] W, 100 levels
+               Edge device                                                                                                     4 cores @ 1.8 GHz
+               Edge server                                                                                                     8 cores @ 4.0 GHz
+             Energy budget                                                                                                                 5.0 J
+              Delay budget                                                                                                                 5.0 s
+Per-element privacy budget                                                                                             eps_bar = 1.0 bit/element
+               Clip budget                                                                                         c0 = 1.0 (C_l = c0*sqrt(d_l))
+               Noise range [0.0, 0.3, 0.4214, 0.5429, 0.6643, 0.7857, 0.9071, 1.0286, 1.15, 1.2714, 1.3929, 1.5143, 1.6357, 1.7571, 1.8786, 2.0]
+              Search space                                                                                                  59200 configurations
+                     Seeds                                                                              [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+================================================================
+MASTER VERIFICATION
+================================================================
+  [PASS] sigma=0 recovers baseline (A(l,0,0)==clean)
+         range [70.30,70.30]% vs clean 70.30%
+  [PASS] per-element budget is layer-independent
+         eps_bar_dp(1)=0.5000 (no layer arg)
+  [PASS] per-element budget decreasing in sigma
+         monotone
+  [PASS] total budget: deeper split leaks less
+         l0=1605632 > l36=12544 bits
+  [PASS] sigma=0 -> unbounded per-element leakage
+         eps_bar_dp(0)=inf
+  [PASS] PA-BSE satisfies E/delay/privacy
+         E=1.51/5.0 delay=4.23/5.0 eps_bar=0.853775751369092/1.0
+  [PASS] Baseline BSE satisfies E/delay/privacy
+         E=1.50/5.0 delay=4.26/5.0 eps_bar=inf/1.0
+  [PASS] Exhaustive satisfies E/delay/privacy
+         E=1.39/5.0 delay=5.00/5.0 eps_bar=0.853775751369092/1.0
+  [PASS] PA-BSE uses NON-ZERO noise (did not degenerate to baseline)
+         PA-BSE sigma=0.6643 (must be >0; sigma=0 would mean no privacy was applied)
+  [PASS] PA-BSE == exhaustive optimum
+         PA-BSE 69.77% vs exhaustive 69.77%
+  [PASS] PA-BSE >= equal-budget random search
+         PA-BSE 69.77% vs random 69.77%
+  [PASS] param-block accuracy == optimizer accuracy
+         table 69.77% vs optimizer 69.77%
+  [PASS] privacy cost is reported (not hidden)
+         at eps_bar=1.0: cost 0.53 pts (clean 70.30% -> 69.77%)
+  [PASS] privacy-utility frontier has real spread
+         accuracy spans 66.5%-70.1% over the budget range
+================================================================
+ALL 14 CHECKS PASSED
+================================================================
+
+### RESULTS MANIFEST ###
+Eval: ImageNet-Mini 1000, clean 70.30% | grid 59200 | eps_bar=1.0, c0=1.0
+
+HEADLINE NUMBERS (for slides/paper):
+  Baseline BSE:  layer 6, P=0.419, acc 70.30%
+  PA-BSE:        layer 6, P=0.427, sigma=0.664, acc 69.77%
+  Privacy cost:  0.53 accuracy points at eps_bar=1.0
+  Efficiency:    optimum in initial design (grid 59200)
+
+FIGURES (29):
+   T1_comparison_with_delta.png
+   T2_privacy_frontier_annotated.png
+   T3_per_layer_summary.png
+   T4_experimental_configuration.png
+   T5_privacy_baselines.png
+   T6_layer_diversity.png
+   T7_forced_layer_ranking.png
+   channel_gains.png
+   cmp_accuracy_vs_layer.png
+   cmp_forced_layer_ranking.png
+   cmp_privacy_baselines.png
+   cmp_privacy_frontier.png
+   heatmap_accuracy_layer_noise.png
+   pair_accuracy_vs_drop.png
+   pair_accuracy_vs_noise.png
+   pair_accuracy_vs_power.png
+   pair_noise_vs_layer.png
+   pair_optimal_vs_budget.png
+   paper_accuracy_heatmaps.png
+   paper_fig10_seeds.png
+   paper_fig2.png
+   paper_fig3.png
+   paper_fig4.png
+   paper_fig6.png
+   paper_fig8_regret.png
+   results_param_block.png
+   support_leakage.png
+   surface_accuracy_layer_noise.png
+   table1.png
+TABLES (15):
+   T1_comparison_with_delta.csv
+   T2_privacy_frontier_annotated.csv
+   T3_per_layer_summary.csv
+   T4_experimental_configuration.csv
+   T5_privacy_baselines.csv
+   T6_layer_diversity.csv
+   T7_forced_layer_ranking.csv
+   accuracy_profile.csv
+   accuracy_profile_priv.csv
+   cmp_accuracy_vs_layer.csv
+   pairwise_budget_sweep.csv
+   privacy_utility_frontier.csv
+   results_param_block.csv
+   table1.csv
+   vgg19_profile.csv
+
+Saved MASTER_summary.json. READY.
+CAPTION: Accuracy as a joint function of split layer and noise (transmit power
+fixed at the PA-BSE optimum). The blue point (sigma=0) is the BSE baseline; the
+red star is the PA-BSE operating point. The surface shows privacy's accuracy cost.
+Generalization invariant: max |A_priv(l,0,0) - A_BSE(l,0)| = 0.00e+00 percentage points
+PASS
+CAPTION: At zero noise the privacy-aware pipeline reproduces the BSE baseline
+exactly at every split layer (right panel: difference is zero to machine
+precision). PA-BSE is therefore a strict generalization of BSE.
+
+================================================================
+FIGURE INTEGRITY CHECKS
+================================================================
+  [PASS] all figures present in PNG+PDF, non-blank, both curves plottable
+================================================================

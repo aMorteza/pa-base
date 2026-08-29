@@ -14,6 +14,6 @@ Energy budget,5.0 J
 Delay budget,5.0 s
 Per-element privacy budget,eps_bar = 1.0 bit/element
 Clip budget,c0 = 1.0 (C_l = c0*sqrt(d_l))
-Noise grid,"[0.0, 0.5774, 0.7806, 0.9838, 1.1871, 1.3903, 1.5935, 1.7968, 2.0]"
-Search space,33300 configurations
+Noise range,"[0.0, 0.3, 0.4214, 0.5429, 0.6643, 0.7857, 0.9071, 1.0286, 1.15, 1.2714, 1.3929, 1.5143, 1.6357, 1.7571, 1.8786, 2.0]"
+Search space,59200 configurations
 Seeds,"[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]"

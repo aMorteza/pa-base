@@ -1,0 +1,8 @@
+Method,SplitLayer,LayerName,Power_W,Sigma,Accuracy_pct,Energy_J,Delay_s,PerElem_Leakage,Note,PA_BSE_gain_pts
+BSE (non-private reference),0,conv1_1,0.399,0.0,70.3,1.398,5.0,inf,no privacy mechanism; sigma=0,-0.53
+"PA-BSE (joint l, P, sigma)",6,relu2_1,0.4273,0.6643,69.77,1.507,4.228,0.8538,our method,-0.0
+Noise-only DP (fixed split & power),0,conv1_1,0.399,0.6643,65.13,1.398,5.0,0.8538,privacy added on top of the non-private solution,4.64
+Fixed-noise (sigma at budget floor),6,relu2_1,0.2535,0.6643,69.77,1.392,5.0,0.8538,sigma pinned; l and P optimised,-0.0
+Deepest-feasible-split heuristic,15,relu3_3,0.399,0.6643,42.53,2.62,5.0,0.8538,"maximise split depth, then optimise P and sigma",27.24
+"Fixed-split (l=0), optimise P and sigma",0,conv1_1,0.399,0.6643,65.13,1.398,5.0,0.8538,isolates the value of choosing l,4.64
+"Fixed-power (P=0.399), optimise l and sigma",6,relu2_1,0.399,0.6643,69.77,1.498,4.332,0.8538,isolates the value of choosing P,-0.0
