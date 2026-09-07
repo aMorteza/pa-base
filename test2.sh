@@ -1,0 +1,1 @@
+USERNAME="aMorteza"; PASSWORD=$(tr -d '\r\n' < pass); ASKPASS=$(mktemp); printf '#!/bin/sh\ncase "$1" in *Username*) printf "%%s\\n" "%s";; *Password*) printf "%%s\\n" "%s";; esac\n' "$USERNAME" "$PASSWORD" > "$ASKPASS"; chmod 700 "$ASKPASS"; GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 git push; rm -f "$ASKPASS"
